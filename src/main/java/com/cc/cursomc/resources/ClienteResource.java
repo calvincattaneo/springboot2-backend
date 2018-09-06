@@ -11,15 +11,15 @@ import com.cc.cursomc.domain.Cliente;
 import com.cc.cursomc.services.ClienteService;
 
 @RestController
-@RequestMapping(value="/clientes")
+@RequestMapping(value = "/clientes")
 public class ClienteResource {
-	
+
 	@Autowired
 	private ClienteService service;
-	
-	@RequestMapping(value="/{id}", method=RequestMethod.GET)
-	public ResponseEntity<?> find(@PathVariable Integer id) {
-		Cliente obj = service.buscar(id);
+
+	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	public ResponseEntity<Cliente> find(@PathVariable Integer id) {
+		Cliente obj = service.find(id);
 		return ResponseEntity.ok().body(obj);
 	}
 }
